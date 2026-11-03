@@ -6,7 +6,6 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import LayoutMapsSection from "@/components/LayoutMapsSection";
-import MapsPageSection from "@/components/MapsPageSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function Home() {

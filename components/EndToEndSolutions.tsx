@@ -6,87 +6,96 @@ import { Map, Home, Building2, Factory, TrendingUp, FileText } from 'lucide-reac
 export const EndToEndSolutions = () => {
   const solutions = [
     {
-      icon: <Map className="size-6 text-amber-400" />,
-      title: "Residential Plots",
-      description: "Verified plots in approved sectors and authority schemes across Noida, Greater Noida and YEIDA."
+      num: '01',
+      title: 'Residential Sector Plots',
+      description: 'Authority-approved freehold and leasehold plots across established sectors with clear zoning and land demarcation.',
+      authority: 'Noida · GNIDA · YEIDA',
+      icon: <Map className="size-5 text-amber-400" />
     },
     {
-      icon: <Home className="size-6 text-amber-400" />,
-      title: "Houses, Villas & Apartments",
-      description: "Ready-to-move and under-construction homes that fit your family and budget."
+      num: '02',
+      title: 'Villas, Builder Floors & High-Rises',
+      description: 'End-to-end evaluation of ready-to-move and under-construction residences with RERA compliance audits.',
+      authority: 'Sector 150 · Pari Chowk · Expressway',
+      icon: <Home className="size-5 text-amber-400" />
     },
     {
-      icon: <Building2 className="size-6 text-amber-400" />,
-      title: "Commercial Properties",
-      description: "Shops, showrooms, offices and commercial plots in high-growth locations."
+      num: '03',
+      title: 'Commercial Hubs & Office Suites',
+      description: 'High-footfall retail shops, SCO plots, institutional spaces, and corporate offices along primary transit corridors.',
+      authority: 'Commercial Belts · IT Parks',
+      icon: <Building2 className="size-5 text-amber-400" />
     },
     {
-      icon: <Factory className="size-6 text-amber-400" />,
-      title: "Industrial Land & Warehouses",
-      description: "Industrial plots and warehousing near Yamuna Expressway and the upcoming Jewar Airport."
+      num: '04',
+      title: 'Industrial & Warehousing Corridors',
+      description: 'Strategically located plots in Ecotech, Knowledge Park, and YEIDA industrial clusters adjacent to cargo logistics hubs.',
+      authority: 'Ecotech · DMIC · Airport Hub',
+      icon: <Factory className="size-5 text-amber-400" />
     },
     {
-      icon: <TrendingUp className="size-6 text-amber-400" />,
-      title: "Investment Advisory",
-      description: "Rental yield analysis, resale opportunities and long-term wealth creation strategies."
+      num: '05',
+      title: 'Yield Advisory & Resale Opportunities',
+      description: 'Empirical price-trend analytics, rental yield forecasts, and capital appreciation roadmaps for private investors.',
+      authority: 'Data-driven Portfolios',
+      icon: <TrendingUp className="size-5 text-amber-400" />
     },
     {
-      icon: <FileText className="size-6 text-amber-400" />,
-      title: "Legal & Documentation",
-      description: "Property verification, title checks, agreements and registry assistance."
+      num: '06',
+      title: 'Registry, Title & Conveyance Support',
+      description: 'Complete documentation diligence: authority dues clearance, title search, transfer deed drafting, and sub-registrar assistance.',
+      authority: 'Full Legal Conveyance',
+      icon: <FileText className="size-5 text-amber-400" />
     }
   ]
 
   return (
-    <section className="relative w-full bg-black text-white py-20 px-6 md:px-12 overflow-hidden font-sans">
-      
-      {/* Optional Subtle Grid Background Overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.12]" 
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(234, 179, 8, 0.3) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(234, 179, 8, 0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }}
-      />
-
+    <section className="relative w-full bg-zinc-950 text-white py-20 px-6 md:px-12 border-b border-zinc-800/80 font-sans">
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Section Header */}
-        <div className="text-center space-y-3 mb-16 max-w-3xl">
-          <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-amber-400">
-            What We Do
-          </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
-            End-to-End Real Estate Solutions
+        <div className="text-center space-y-3 mb-14 max-w-3xl">
+          <div className="text-xs font-semibold tracking-wider uppercase text-amber-400">
+            Advisory &amp; Services
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white [text-wrap:balance]">
+            Comprehensive Real Estate Advisory
           </h2>
-          <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
-            From shortlisting the right property to final registry, we handle every step with transparency.
+          <p className="text-sm md:text-base text-zinc-400 leading-relaxed [text-wrap:balance]">
+            From identifying layout plots to legal title verification and registration, we handle every milestone with utmost integrity.
           </p>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {solutions.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+          {solutions.map((item) => (
             <div 
-              key={index}
-              className="group relative bg-zinc-950/80 border border-amber-500/20 rounded-2xl p-8 transition-all duration-300 hover:border-amber-400/60 hover:bg-zinc-900/90 hover:shadow-xl hover:shadow-amber-500/5 flex flex-col justify-between"
+              key={item.num}
+              className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6 transition-all duration-300 hover:border-amber-400/50 hover:bg-zinc-900/80 flex flex-col justify-between group"
             >
               <div className="space-y-4">
-                {/* Icon Box */}
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center transition-colors group-hover:bg-amber-500/20">
-                  {item.icon}
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center transition-colors group-hover:bg-amber-500/20">
+                    {item.icon}
+                  </div>
+                  <span className="text-xs font-mono font-bold text-zinc-500 group-hover:text-amber-400/80 transition-colors">
+                    {item.num}
+                  </span>
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="text-xl font-bold text-white tracking-wide group-hover:text-amber-400 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">
-                  {item.description}
-                </p>
+                <div className="space-y-2">
+                  <h3 className="text-base md:text-lg font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-zinc-400 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-3 border-t border-zinc-800/80 flex items-center gap-1.5 text-[11px] text-zinc-500 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400/60" />
+                <span>{item.authority}</span>
               </div>
             </div>
           ))}

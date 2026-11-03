@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  output: 'standalone',
   images: {
-    unoptimized: true, // 👈 REQUIRED for cPanel static hosting
+    unoptimized: true,
   },
-  // You can keep turbopack rules if you use it for local development
   turbopack: {
     rules: {
       "*.css": {

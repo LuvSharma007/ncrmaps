@@ -9,106 +9,51 @@ export const Footer = () => {
   const phoneNumber = '+91 62000-69000'
   const cleanPhone = '916200069000'
 
-  const usefulLinks = [
-    { name: 'Privacy & Policy', href: '/privacy-policy' },
-    { name: 'What We Do', href: '/services' },
-    { name: 'Our Properties', href: '/projects' },
-    { name: 'About Us', href: '/about-us' },
+  const exploreMaps = [
+    { name: 'All Master Maps', href: '/maps' },
+    { name: 'Greater Noida Sector Maps', href: '/maps/greater-noida' },
+    { name: 'Noida Sector Layouts', href: '/maps/noida' },
+    { name: 'Yamuna Expressway (YEIDA)', href: '/maps/yamuna' },
   ]
 
-  const exploreMaps = [
-    { name: 'Greater Noida Maps', href: '/maps/greater-noida' },
-    { name: 'Noida Maps', href: '/maps/noida' },
-    { name: 'Yeida Maps', href: '/maps/yamuna-expressway' },
+  const advisoryServices = [
+    { name: 'Authority Title Search & Registry', href: '#contact-advisory' },
+    { name: 'Sector Plot Demarcation', href: '#contact-advisory' },
+    { name: 'Accompanied Site Visits', href: '#contact-advisory' },
+    { name: 'Commercial & SCO Advisory', href: '#contact-advisory' },
   ]
 
   return (
-    <footer className="relative w-full bg-black text-white pt-20 pb-8 px-6 md:px-12 border-t border-amber-500/20 font-sans overflow-hidden">
-      
-      {/* Grid Pattern Background Overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.10]" 
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(234, 179, 8, 0.3) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(234, 179, 8, 0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-zinc-800/80">
+    <footer className="relative w-full bg-zinc-950 text-white pt-16 pb-12 px-6 md:px-12 border-t border-zinc-800/80 font-sans">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-14 border-b border-zinc-800/80">
         
-        {/* Col 1: Brand & Description */}
-        <div className="space-y-6">
-          <Link href="/" aria-label="home" className="inline-block">
+        {/* Col 1: Brand & Cartography Commitment */}
+        <div className="space-y-4">
+          <Link href="/" aria-label="NCR Maps Home" className="inline-block">
             <Logo size="lg" />
           </Link>
-          <p className="text-xs md:text-sm text-zinc-400 leading-relaxed">
-            NCRMAPS offers residential plots, independent houses, and commercial properties to help you find the right property for your needs and investment goals.
+          <p className="text-xs md:text-sm text-zinc-400 leading-relaxed [text-wrap:balance]">
+            Authority-sanctioned layout plans, master blueprints, and ground real estate advisory across Noida, Greater Noida, and Yamuna Expressway.
           </p>
+          <div className="text-xs text-zinc-500">
+            <span>Verified Cartography</span>
+            <span className="mx-2">·</span>
+            <span>Ground Intelligence</span>
+          </div>
         </div>
 
-        {/* Col 2: Get In Touch */}
-        <div className="space-y-6">
-          <h3 className="text-base font-bold text-white tracking-wide">
-            Get In Touch
+        {/* Col 2: Sector Maps Index */}
+        <div className="space-y-4">
+          <h3 className="text-sm font-bold text-white uppercase tracking-wider text-amber-400">
+            Authority Maps
           </h3>
-          <ul className="space-y-4 text-xs md:text-sm text-zinc-400">
-            
-            <li className="flex items-start gap-3">
-              <div className="p-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0 mt-0.5">
-                <MapPin className="size-4" />
-              </div>
-              <span>204, S L Tower, Alpha-I Commercial Belt, Greater Noida, Uttar Pradesh</span>
-            </li>
-
-            <li className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
-                <Phone className="size-4" />
-              </div>
-              <Link href={`tel:${cleanPhone}`} className="hover:text-amber-400 transition-colors">
-                Mobile: {phoneNumber}
-              </Link>
-            </li>
-
-            <li className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
-                <Mail className="size-4" />
-              </div>
-              <Link href="mailto:info@cpgroup.in" className="hover:text-amber-400 transition-colors">
-                info@cpgroup.in
-              </Link>
-            </li>
-
-          </ul>
-        </div>
-
-        {/* Col 3: Useful Links */}
-        <div className="space-y-6">
-          <h3 className="text-base font-bold text-white tracking-wide">
-            Useful Links
-          </h3>
-          <ul className="space-y-3 text-xs md:text-sm text-zinc-400">
-            {usefulLinks.map((link, index) => (
-              <li key={index}>
-                <Link href={link.href} className="hover:text-amber-400 transition-colors">
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Col 4: Explore Maps */}
-        <div className="space-y-6">
-          <h3 className="text-base font-bold text-white tracking-wide">
-            Explore Maps
-          </h3>
-          <ul className="space-y-3 text-xs md:text-sm text-zinc-400">
+          <ul className="space-y-2.5 text-xs md:text-sm text-zinc-400">
             {exploreMaps.map((mapItem, index) => (
               <li key={index}>
-                <Link href={mapItem.href} className="hover:text-amber-400 transition-colors">
+                <Link
+                  href={mapItem.href}
+                  className="hover:text-amber-400 transition-colors inline-block"
+                >
                   {mapItem.name}
                 </Link>
               </li>
@@ -116,13 +61,63 @@ export const Footer = () => {
           </ul>
         </div>
 
+        {/* Col 3: Services */}
+        <div className="space-y-4">
+          <h3 className="text-sm font-bold text-white uppercase tracking-wider text-amber-400">
+            Property Advisory
+          </h3>
+          <ul className="space-y-2.5 text-xs md:text-sm text-zinc-400">
+            {advisoryServices.map((service, index) => (
+              <li key={index}>
+                <Link
+                  href={service.href}
+                  className="hover:text-amber-400 transition-colors inline-block"
+                >
+                  {service.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Col 4: Contact & Office */}
+        <div className="space-y-4">
+          <h3 className="text-sm font-bold text-white uppercase tracking-wider text-amber-400">
+            Advisory Desk
+          </h3>
+          <ul className="space-y-3 text-xs md:text-sm text-zinc-400">
+            <li className="flex items-start gap-2.5">
+              <MapPin className="size-4 text-amber-400 shrink-0 mt-0.5" />
+              <span>204, S L Tower, Alpha-I Commercial Belt, Greater Noida, Uttar Pradesh</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Phone className="size-4 text-amber-400 shrink-0" />
+              <a href={`tel:${cleanPhone}`} className="hover:text-amber-400 transition-colors font-mono">
+                {phoneNumber}
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Mail className="size-4 text-amber-400 shrink-0" />
+              <a href="mailto:info@cpgroup.in" className="hover:text-amber-400 transition-colors">
+                info@cpgroup.in
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
       {/* Copyright Bottom Bar */}
-      <div className="relative z-10 max-w-7xl mx-auto pt-6 text-center text-xs text-zinc-500">
-        <p>Copyright &copy; 2026 NCRMAPS. All rights reserved.</p>
+      <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <p>&copy; {new Date().getFullYear()} NCR Maps. All authority maps and blueprints indexed for educational and property planning purposes.</p>
+        <div className="flex items-center gap-4">
+          <span>Noida</span>
+          <span>·</span>
+          <span>Greater Noida</span>
+          <span>·</span>
+          <span>YEIDA</span>
+        </div>
       </div>
-
     </footer>
   )
 }

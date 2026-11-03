@@ -1,8 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Map, ArrowRight, Layers } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 export const MapsPageSection = () => {
@@ -11,30 +10,33 @@ export const MapsPageSection = () => {
   const mapItems = [
     {
       id: 'greater-noida',
-      category: 'Greater Noida',
-      title: 'Greater Noida Map',
-      subtitle: "Navigate the city's sectors and zones",
-      description: 'Browse sector-wise layouts of Greater Noida, from Alpha, Beta and Gamma to Sigma, Omicron, Ecotech and Knowledge Park. See residential, commercial and industrial zones clearly before you shortlist a plot, house or flat.',
+      category: 'Greater Noida Authority',
+      title: 'Greater Noida Master & Sector Plan',
+      subtitle: 'Complete Alpha to Ecotech cartography',
+      description: 'Explore verified sector-wise layouts across residential, commercial, and industrial clusters. Includes Alpha, Beta, Gamma, Sigma, Omicron, Knowledge Park, and Ecotech zones with plot dimensions and park locations.',
       link: '/maps/greater-noida',
-      img:'https://chhabraproperty.com/wp-content/uploads/2026/10/MP-GREATER-NOIDA-5.jpg'
+      count: '120+ Maps',
+      img: 'https://chhabraproperty.com/wp-content/uploads/2026/10/MP-GREATER-NOIDA-5.jpg'
     },
     {
       id: 'noida',
-      category: 'Noida',
-      title: 'Noida Master Plan Map',
-      subtitle: 'Explore sectors 1 through 150+',
-      description: 'Comprehensive layout maps covering Noida prime residential sectors, commercial hubs, metro connectivity corridors, and expressway access points for informed real estate decisions.',
-      link:'/maps/noida',
-      img: 'https://chhabraproperty.com/wp-content/uploads/2026/10/MP-YAMUNA-2031-1.jpg',
+      category: 'Noida Authority',
+      title: 'Noida Master Plan & Sectors 1–168',
+      subtitle: 'Expressway corridors & prime residential hubs',
+      description: 'Comprehensive layout blueprints covering prime residential sectors (44, 50, 78, 137, 150), institutional corridors, metro connectivity stations, and 5% abadi plots for diligent property acquisition.',
+      link: '/maps/noida',
+      count: '200+ Maps',
+      img: 'https://chhabraproperty.com/wp-content/uploads/2026/10/MP-NOIDA.jpg.jpeg'
     },
     {
       id: 'yamuna',
-      category: 'Yamuna Expressway',
-      title: 'Yamuna Expressway (YEIDA) Map',
-      subtitle: 'Track industrial plots & Jewar Airport zones',
-      description: 'Detailed YEIDA master plan maps highlighting upcoming industrial sectors, residential plots near the airport, and expressway connectivity projects for high-ROI investments.',
+      category: 'YEIDA Authority',
+      title: 'Yamuna Expressway (YEIDA) Master Plan',
+      subtitle: 'Jewar Airport aerotropolis & industrial clusters',
+      description: 'High-precision layout plans highlighting upcoming industrial manufacturing sectors, residential plots (Sector 18 & 20), Gaur Yamuna City, and multi-modal transit corridors near Noida International Airport.',
       link: '/maps/yamuna',
-      img:'https://chhabraproperty.com/wp-content/uploads/2026/10/MP-NOIDA.jpg.jpeg'
+      count: '70+ Maps',
+      img: '/src/assets/images/master_plan_yeida_airport_1793725858775.jpg'
     },
   ]
 
@@ -43,105 +45,96 @@ export const MapsPageSection = () => {
     : mapItems.filter(item => item.id === activeTab)
 
   return (
-    <section className="relative w-full bg-black text-white py-20 px-6 md:px-12 overflow-hidden font-sans">
-      
-      {/* Grid Pattern Background Overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.12]" 
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(234, 179, 8, 0.3) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(234, 179, 8, 0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }}
-      />
-
+    <section className="relative w-full bg-zinc-950 text-white py-16 md:py-24 px-6 md:px-12 border-b border-zinc-800/80 font-sans">
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Header Section */}
         <div className="text-center space-y-4 mb-10 max-w-3xl">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Navigate with Ease: Greater Noida, Noida & Yamuna Expressway Maps[cite: 10]
+          <div className="text-xs font-semibold tracking-wider uppercase text-amber-400">
+            Delhi-NCR Cartography
+          </div>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight [text-wrap:balance]">
+            Explore Official Layout Plans &amp; Sector Blueprints
           </h1>
-          <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-2xl mx-auto">
-            Open clear layout maps and master plans for Greater Noida, Noida and the Yamuna Expressway (YEIDA). Compare sectors, check roads and zones, and plan your property search with local guidance from Chhabra Properties[cite: 10].
+          <p className="text-sm md:text-base text-zinc-300 leading-relaxed max-w-2xl mx-auto [text-wrap:balance]">
+            Review detailed sector layouts, verify road widths, inspect park facing alignments, and plan your site visit with verified data from local NCR property advisors.
           </p>
         </div>
 
-        {/* Filter Navigation Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
-          <Button
+        {/* Clean Segmented Control for Filtering */}
+        <div className="flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-zinc-900 border border-zinc-800 rounded-2xl mb-14">
+          <button
             onClick={() => setActiveTab('all')}
-            variant={activeTab === 'all' ? 'default' : 'outline'}
-            className={`rounded-full px-6 text-xs md:text-sm font-semibold transition-all ${
-              activeTab === 'all' 
-                ? 'bg-amber-500 text-black hover:bg-amber-400' 
-                : 'border-amber-500/40 text-amber-400 bg-black/40 hover:bg-amber-500/10 hover:border-amber-400'
+            className={`px-5 py-2 text-xs md:text-sm font-semibold rounded-xl transition-all ${
+              activeTab === 'all'
+                ? 'bg-amber-500 text-black shadow-md'
+                : 'text-zinc-400 hover:text-white'
             }`}
           >
-            All Maps
-          </Button>
-          <Button
+            All Authorities
+          </button>
+          <button
             onClick={() => setActiveTab('greater-noida')}
-            variant={activeTab === 'greater-noida' ? 'default' : 'outline'}
-            className={`rounded-full px-6 text-xs md:text-sm font-semibold transition-all ${
-              activeTab === 'greater-noida' 
-                ? 'bg-amber-500 text-black hover:bg-amber-400' 
-                : 'border-amber-500/40 text-amber-400 bg-black/40 hover:bg-amber-500/10 hover:border-amber-400'
+            className={`px-5 py-2 text-xs md:text-sm font-semibold rounded-xl transition-all ${
+              activeTab === 'greater-noida'
+                ? 'bg-amber-500 text-black shadow-md'
+                : 'text-zinc-400 hover:text-white'
             }`}
           >
-            Greater Noida Maps[cite: 10]
-          </Button>
-          <Button
+            Greater Noida
+          </button>
+          <button
             onClick={() => setActiveTab('noida')}
-            variant={activeTab === 'noida' ? 'default' : 'outline'}
-            className={`rounded-full px-6 text-xs md:text-sm font-semibold transition-all ${
-              activeTab === 'noida' 
-                ? 'bg-amber-500 text-black hover:bg-amber-400' 
-                : 'border-amber-500/40 text-amber-400 bg-black/40 hover:bg-amber-500/10 hover:border-amber-400'
+            className={`px-5 py-2 text-xs md:text-sm font-semibold rounded-xl transition-all ${
+              activeTab === 'noida'
+                ? 'bg-amber-500 text-black shadow-md'
+                : 'text-zinc-400 hover:text-white'
             }`}
           >
-            Noida Maps[cite: 10]
-          </Button>
-          <Button
+            Noida
+          </button>
+          <button
             onClick={() => setActiveTab('yamuna')}
-            variant={activeTab === 'yamuna' ? 'default' : 'outline'}
-            className={`rounded-full px-6 text-xs md:text-sm font-semibold transition-all ${
-              activeTab === 'yamuna' 
-                ? 'bg-amber-500 text-black hover:bg-amber-400' 
-                : 'border-amber-500/40 text-amber-400 bg-black/40 hover:bg-amber-500/10 hover:border-amber-400'
+            className={`px-5 py-2 text-xs md:text-sm font-semibold rounded-xl transition-all ${
+              activeTab === 'yamuna'
+                ? 'bg-amber-500 text-black shadow-md'
+                : 'text-zinc-400 hover:text-white'
             }`}
           >
-            Yamuna Expressway Maps[cite: 10]
-          </Button>
+            Yamuna Expressway (YEIDA)
+          </button>
         </div>
 
-        {/* Maps List Stack / Cards */}
+        {/* Maps List Stack */}
         <div className="w-full max-w-5xl space-y-8">
           {filteredMaps.map((map) => (
             <div 
               key={map.id}
-              className="bg-zinc-950/90 border border-amber-500/20 rounded-2xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center transition-all duration-300 hover:border-amber-400/50 hover:shadow-xl hover:shadow-amber-500/5"
+              className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center transition-all duration-300 hover:border-amber-400/50 hover:shadow-2xl hover:shadow-amber-500/5"
             >
-              {/* Left: Image / Map Preview Placeholder (Left as empty wrapper) */}
-              <div className="lg:col-span-6 relative w-full h-64 md:h-72 rounded-xl bg-zinc-900 border border-amber-500/10 overflow-hidden flex flex-col items-center justify-center p-4">
-                <div className="text-center space-y-2">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mx-auto text-amber-400">
-                  </div>
-                  <span className="text-xs text-zinc-500 font-medium tracking-wide block">
-                    <img src={map.img} alt={map.title} />
+              {/* Left: Map Preview Box */}
+              <div className="lg:col-span-5 relative w-full h-64 md:h-72 rounded-xl bg-zinc-950 border border-zinc-800 overflow-hidden group">
+                <img
+                  src={map.img}
+                  alt={map.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <span className="px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md text-amber-400 border border-amber-500/30 text-[11px] font-semibold">
+                    {map.count}
                   </span>
                 </div>
               </div>
 
               {/* Right: Content Details */}
-              <div className="lg:col-span-6 space-y-4">
+              <div className="lg:col-span-7 space-y-4">
                 <div className="space-y-1">
-                  <span className="text-xs font-bold tracking-widest uppercase text-amber-400">
+                  <span className="text-xs font-semibold tracking-wider uppercase text-amber-400">
                     {map.category}
                   </span>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
                     {map.title}
                   </h2>
                   <p className="text-xs text-zinc-400 font-medium">
@@ -154,14 +147,13 @@ export const MapsPageSection = () => {
                 </p>
 
                 <div className="pt-2">
-                  <Button 
-                    className="bg-amber-500 hover:bg-amber-400 text-black font-semibold px-6 py-5 rounded-xl transition-all shadow-md text-sm flex items-center gap-2 group w-fit"
+                  <Link
+                    href={map.link}
+                    className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-semibold px-6 py-3 rounded-xl transition-all shadow-md text-sm group"
                   >
-                    <Link href={map.link}>
-                      <span>Explore {map.category} Map</span>
-                      <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" data-icon="inline-end" />
-                    </Link>
-                  </Button>
+                    <span>Explore {map.category} Maps</span>
+                    <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
 

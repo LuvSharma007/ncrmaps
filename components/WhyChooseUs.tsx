@@ -1,97 +1,61 @@
 'use client'
 
 import React from 'react'
-import { ShieldCheck, Award, TrendingUp, MapPin, Layers, Eye, Users, Headphones } from 'lucide-react'
+import { ShieldCheck, Award, MapPin, Eye } from 'lucide-react'
 
 export const WhyChooseUs = () => {
-  const features = [
+  const pillars = [
     {
-      icon: <ShieldCheck className="size-6 text-amber-400" />,
-      title: 'Verified Properties',
-      description: 'Every property is legally verified for complete transparency and secure investment.',
+      icon: <ShieldCheck className="size-5 text-amber-400" />,
+      title: 'Direct Authority Verification',
+      description: 'Every layout map and sector plot is cross-checked against official Noida, GNIDA, and YEIDA master records before shortlisting.',
     },
     {
-      icon: <Award className="size-6 text-amber-400" />,
-      title: 'Trusted Developers',
-      description: 'We partner with leading developers to deliver premium projects.',
+      icon: <Eye className="size-5 text-amber-400" />,
+      title: 'Zero Hidden Dues or Surprises',
+      description: 'Clear breakdown of authority transfer charges, registry stamp duty, maintenance dues, and circle rate assessments upfront.',
     },
     {
-      icon: <TrendingUp className="size-6 text-amber-400" />,
-      title: 'Best Investment',
-      description: 'Access high-ROI residential and commercial investment opportunities.',
+      icon: <MapPin className="size-5 text-amber-400" />,
+      title: 'Hyper-Local Ground Advisory',
+      description: 'Physical presence across Alpha Commercial Belt, Sector 62, and Expressway for accompanied on-site evaluations.',
     },
     {
-      icon: <MapPin className="size-6 text-amber-400" />,
-      title: 'Prime Locations',
-      description: 'Premium properties in Noida, Greater Noida and Yamuna Expressway.',
-    },
-    {
-      icon: <Layers className="size-6 text-amber-400" />,
-      title: 'End-to-End Assistance',
-      description: 'From site visit to documentation and registration, we assist at every step.',
-    },
-    {
-      icon: <Eye className="size-6 text-amber-400" />,
-      title: 'Transparent Deals',
-      description: 'No hidden charges. Honest pricing with complete documentation support.',
-    },
-    {
-      icon: <Users className="size-6 text-amber-400" />,
-      title: 'Expert Consultants',
-      description: 'Experienced advisors help you choose the right property for your budget.',
-    },
-    {
-      icon: <Headphones className="size-6 text-amber-400" />,
-      title: 'Dedicated Support',
-      description: 'Friendly support before and after your property purchase.',
+      icon: <Award className="size-5 text-amber-400" />,
+      title: '12+ Years Industry Track Record',
+      description: 'Facilitated over 1,000+ seamless property acquisitions, leasehold transfers, and industrial land allocations.',
     },
   ]
 
   return (
-    <section className="relative w-full bg-black text-white py-20 px-6 md:px-12 overflow-hidden font-sans">
-      
-      {/* Grid Pattern Background Overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.12]" 
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(234, 179, 8, 0.3) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(234, 179, 8, 0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }}
-      />
-
+    <section className="relative w-full bg-zinc-950 text-white py-20 px-6 md:px-12 border-b border-zinc-800/80 font-sans">
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Section Header */}
-        <div className="text-center space-y-3 mb-16 max-w-3xl">
-          <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-amber-400">
-            Why Choose Us
-          </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
-            Your Trusted Real Estate Partner
+        <div className="text-center space-y-3 mb-14 max-w-3xl">
+          <div className="text-xs font-semibold tracking-wider uppercase text-amber-400">
+            Institutional Trust
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white [text-wrap:balance]">
+            Why Property Buyers &amp; Investors Rely On NCR Maps
           </h2>
-          <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
-            We make buying and investing simple, transparent and rewarding — with experts guiding you at every step.
+          <p className="text-sm md:text-base text-zinc-400 leading-relaxed [text-wrap:balance]">
+            Navigating Delhi-NCR property records requires precision. We blend authoritative cartography with rigorous field verification.
           </p>
         </div>
 
-        {/* 4x2 Grid Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-          {features.map((feature, index) => (
+        {/* 4-Column Core Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+          {pillars.map((feature, index) => (
             <div 
               key={index}
-              className="group relative bg-zinc-950/80 border border-amber-500/20 rounded-2xl p-6 transition-all duration-300 hover:border-amber-400/60 hover:bg-zinc-900/90 hover:shadow-xl hover:shadow-amber-500/5 flex flex-col justify-between"
+              className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6 transition-all duration-300 hover:border-amber-400/50 hover:bg-zinc-900/80 flex flex-col justify-between"
             >
               <div className="space-y-4">
-                {/* Icon Box */}
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center transition-colors group-hover:bg-amber-500/20">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
                   {feature.icon}
                 </div>
-
-                {/* Title & Description */}
-                <h3 className="text-lg font-bold text-white tracking-wide group-hover:text-amber-400 transition-colors">
+                <h3 className="text-base font-bold text-white tracking-tight">
                   {feature.title}
                 </h3>
                 <p className="text-xs md:text-sm text-zinc-400 leading-relaxed">

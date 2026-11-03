@@ -1,72 +1,64 @@
 'use client'
 
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { ArrowRight, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
 
 export const EarlyBirdStatsSection = () => {
   const stats = [
-    { value: '1,000+', label: 'Happy Clients' },
-    { value: '500+', label: 'Verified Properties' },
-    { value: '50+', label: 'Trusted Developers' },
-    { value: '12+', label: 'Years Experience' },
+    { value: '600+', label: 'Verified Sector Maps' },
+    { value: '1,000+', label: 'Property Buyers Advised' },
+    { value: '50+', label: 'RERA Approved Projects' },
+    { value: '12+', label: 'Years Field Experience' },
   ]
 
   return (
-    <section className="w-full flex flex-col font-sans">
+    <section className="w-full flex flex-col font-sans bg-zinc-950 border-y border-zinc-800/80">
       
-      {/* Top Gold / Yellow Banner Section */}
-      <div className="w-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-300 py-12 px-6 md:px-16 text-black relative overflow-hidden">
-        
-        {/* Subtle background glow/shimmer layer */}
-        <div className="absolute inset-0 bg-white/10 pointer-events-none backdrop-blur-[1px]" />
-
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+      {/* Top Value Banner */}
+      <div className="w-full bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-zinc-900 py-10 px-6 md:px-12 border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           
           {/* Left Text Content */}
-          <div className="space-y-2 max-w-2xl">
-            <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-black/80">
-              New Launches
-            </span>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white drop-shadow-sm">
-              Get Early-Bird Pricing On Upcoming Projects
+          <div className="space-y-2 max-w-3xl">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-400">
+              <TrendingUp className="size-4" />
+              <span>Investment &amp; Pre-Launch Intelligence</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+              First-Mover Access to Upcoming Authority Schemes &amp; Pre-Launches
             </h2>
-            <p className="text-sm md:text-base text-black/95 font-medium leading-relaxed">
-              Be the first to know about pre-launch opportunities across Noida, Greater Noida and YEIDA.
+            <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
+              Receive verified layout blueprints, circle rates, and price movement insights across Noida, Greater Noida and the Jewar Airport corridor before public announcements.
             </p>
           </div>
 
-          {/* Right Action Button */}
-          <div className="shrink-0">
-            <Button
-              className="bg-black text-amber-300 hover:bg-zinc-900 font-semibold px-6 py-6 rounded-xl shadow-xl transition-all flex items-center gap-2 group text-sm md:text-base border border-amber-400/30"
+          <div className="shrink-0 w-full sm:w-auto">
+            <Link
+              href="#contact-advisory"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-semibold px-6 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
             >
-              <Link href="/contact-us">
-                <span>Get Pre-Launch Deals</span>
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" data-icon="inline-end" />
-              </Link>
-            </Button>
+              <span>Request Pre-Launch Briefing</span>
+              <ArrowRight className="size-4" />
+            </Link>
           </div>
 
         </div>
       </div>
 
-      {/* Bottom Black Stats Grid Section */}
-      <div className="w-full bg-black py-16 px-6 md:px-12 text-white border-t border-amber-500/10">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-center">
-          
+      {/* Numerical Stats Grid with Tabular Figures */}
+      <div className="w-full py-12 px-6 md:px-12 bg-zinc-950 text-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x-0 lg:divide-x lg:divide-zinc-800/80">
           {stats.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center justify-center space-y-1">
-              <span className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-amber-400 tracking-tight">
+            <div key={index} className="flex flex-col items-center justify-center px-4 space-y-1.5">
+              <span className="text-3xl md:text-5xl font-black text-amber-400 tracking-tight font-mono tabular-nums">
                 {stat.value}
               </span>
-              <span className="text-xs md:text-sm lg:text-base text-zinc-400 font-medium">
+              <span className="text-xs md:text-sm text-zinc-300 font-medium">
                 {stat.label}
               </span>
             </div>
           ))}
-
         </div>
       </div>
 
