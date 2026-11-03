@@ -19,15 +19,38 @@ export const ContactCTASection = () => {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBqlpFobsYSuRpK_Z3vqwDnO0C0-WfDBBqXBLijMtgAqKjJQY1yHB35zB4C4AQK2__/exec'
+
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!formState.name.trim() || !formState.phone.trim()) return
 
     setSubmitting(true)
-    setTimeout(() => {
-      setSubmitting(false)
+
+    try {
+      // Use URLSearchParams for clean submission across domains without CORS issues
+      const formData = new URLSearchParams()
+      formData.append('name', formState.name)
+      formData.append('phone', formState.phone)
+      formData.append('location', formState.location)
+      formData.append('propertyType', formState.propertyType)
+      formData.append('notes', formState.notes)
+
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString(),
+      })
+
       setSubmitted(true)
-    }, 600)
+    } catch (error) {
+      console.error('Submission failed:', error)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (

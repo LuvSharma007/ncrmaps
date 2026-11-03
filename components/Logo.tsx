@@ -28,7 +28,7 @@ export function Logo({ className, size = "md", showName = true }: LogoProps) {
       {showName && (
         <span className={cn("font-sans tracking-tight text-white flex items-center gap-1", sizeClasses[size])}>
           <span>NCR</span>
-          <span className="text-amber-400">MAPS</span>
+          <span className="text-amber-400">MAP</span>
         </span>
       )}
     </div>

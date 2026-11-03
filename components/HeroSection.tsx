@@ -37,22 +37,16 @@ export const HeroSection = () => {
   return (
     <section className="relative w-full min-h-[92vh] flex flex-col justify-between overflow-hidden bg-zinc-950 text-white">
       {/* Background Architectural Visual with Scrim */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/src/assets/images/hero_architectural_ncr_1793725856200.jpg"
-          alt="Aerial view of Noida and Greater Noida expressway skyline"
-          className="w-full h-full object-cover object-center opacity-30"
-          referrerPolicy="no-referrer"
-        />
+      <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Measured dark gradient scrim for WCAG AA 4.5:1 legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-zinc-950/90 to-zinc-950" />
       </div>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-12 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 md:pt-24 pb-10 sm:pb-12 text-center flex flex-col items-center">
         
-        {/* Editorial Subtitle / Authority Scope */}
-        <div className="flex items-center gap-2 text-xs md:text-sm font-medium text-amber-400 mb-6 tracking-wide">
+        {/* Editorial Subtitle / Authority Scope - Hidden on mobile, visible from sm onwards */}
+        <div className="hidden sm:flex items-center gap-2 text-xs md:text-sm font-medium text-amber-400 mb-6 tracking-wide">
           <span>Authority Master Plans</span>
           <span aria-hidden="true">·</span>
           <span>Noida Development Authority</span>
@@ -63,27 +57,27 @@ export const HeroSection = () => {
         </div>
 
         {/* Primary Headline with Balance */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.12] [text-wrap:balance]">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.2] sm:leading-[1.12] [text-wrap:balance]">
           Verified Master Layout Plans &amp; Sector Maps Across{' '}
           <span className="text-amber-400">Delhi-NCR</span>
         </h1>
 
         {/* Value Proposition Description */}
-        <p className="mt-5 text-sm sm:text-base md:text-lg text-zinc-300 max-w-2xl leading-relaxed [text-wrap:balance]">
+        <p className="mt-4 sm:mt-5 text-xs sm:text-base md:text-lg text-zinc-300 max-w-2xl leading-relaxed [text-wrap:balance]">
           Accurate plot dimensions, arterial road widths, green zoning, and commercial belts for Noida, Greater Noida, and Yamuna Expressway.
         </p>
 
         {/* Unified Search Console */}
-        <div className="w-full max-w-2xl mt-8">
+        <div className="w-full max-w-2xl mt-6 sm:mt-8">
           <form
             onSubmit={handleSearchSubmit}
-            className="flex flex-col sm:flex-row items-center gap-2 p-2 rounded-2xl bg-zinc-900/90 border border-zinc-700/80 shadow-2xl backdrop-blur-md focus-within:border-amber-400/80 transition-all"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 p-2 rounded-2xl bg-zinc-900/90 border border-zinc-700/80 shadow-2xl backdrop-blur-md focus-within:border-amber-400/80 transition-all"
           >
             {/* Region Selector */}
             <select
               value={selectedAuthority}
               onChange={(e) => setSelectedAuthority(e.target.value as 'all' | 'noida' | 'greater-noida' | 'yamuna')}
-              className="w-full sm:w-auto bg-zinc-800/90 text-xs md:text-sm text-zinc-200 border border-zinc-700 rounded-xl px-3.5 py-3 outline-none focus:border-amber-400 transition-colors shrink-0 cursor-pointer"
+              className="w-full sm:w-auto bg-zinc-800/90 text-xs md:text-sm text-zinc-200 border border-zinc-700 rounded-xl px-3.5 py-3 sm:py-2.5 outline-none focus:border-amber-400 transition-colors shrink-0 cursor-pointer text-ellipsis overflow-hidden"
             >
               <option value="all">All Regions</option>
               <option value="noida">Noida Sectors</option>
@@ -99,32 +93,35 @@ export const HeroSection = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search sector, pocket, or layout (e.g. Sector 18, Alpha 1, Beta 2)..."
-                className="w-full bg-transparent border-none text-white placeholder:text-zinc-500 pl-10 pr-3 py-2.5 text-xs md:text-sm focus-visible:ring-0 focus-visible:outline-none"
+                className="w-full bg-transparent border border-zinc-800 sm:border-none text-white placeholder:text-zinc-500 pl-10 pr-3 py-3 sm:py-2.5 text-xs md:text-sm rounded-xl sm:rounded-none focus-visible:ring-0 focus-visible:outline-none"
               />
             </div>
 
             {/* Submit CTA */}
             <Button
               type="submit"
-              className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-black font-semibold px-6 py-3 rounded-xl transition-all shadow-md shrink-0 text-xs md:text-sm flex items-center justify-center gap-1.5"
+              className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-black font-semibold px-6 py-3 sm:py-2.5 rounded-xl transition-all shadow-md shrink-0 text-xs md:text-sm flex items-center justify-center gap-2"
             >
               <span>Explore Maps</span>
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 shrink-0" />
             </Button>
           </form>
 
           {/* Quick Sectors Shortcuts */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs text-zinc-400">
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 mt-4 text-xs text-zinc-400 px-2">
             <span className="text-zinc-500 font-medium">Trending:</span>
             {quickSectors.map((s, idx) => (
-              <Link
-                key={idx}
-                href={s.href}
-                className="text-zinc-300 hover:text-amber-400 transition-colors underline-offset-4 hover:underline"
-              >
-                {s.label}
-                {idx < quickSectors.length - 1 && <span className="ml-2 text-zinc-600" aria-hidden="true">·</span>}
-              </Link>
+              <React.Fragment key={idx}>
+                <Link
+                  href={s.href}
+                  className="text-zinc-300 hover:text-amber-400 transition-colors underline-offset-4 hover:underline"
+                >
+                  {s.label}
+                </Link>
+                {idx < quickSectors.length - 1 && (
+                  <span className="text-zinc-600 select-none" aria-hidden="true">·</span>
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -132,11 +129,11 @@ export const HeroSection = () => {
       </div>
 
       {/* Proof / Trust Strip */}
-      <div className="relative z-10 w-full border-t border-zinc-800/80 bg-zinc-950/70 backdrop-blur-md py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="relative z-10 w-full border-t border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md py-6 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+          <div className="flex items-center gap-3.5 p-2 sm:p-0">
+            <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
               <ShieldCheck className="size-5" />
             </div>
             <div>
@@ -145,8 +142,8 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+          <div className="flex items-center gap-3.5 p-2 sm:p-0">
+            <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
               <Building2 className="size-5" />
             </div>
             <div>
@@ -155,8 +152,8 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+          <div className="flex items-center gap-3.5 p-2 sm:p-0">
+            <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
               <FileText className="size-5" />
             </div>
             <div>
@@ -165,8 +162,8 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+          <div className="flex items-center gap-3.5 p-2 sm:p-0">
+            <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
               <Users className="size-5" />
             </div>
             <div>

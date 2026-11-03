@@ -17,7 +17,7 @@ export const FeaturedProjects = () => {
       configuration: '1, 2 & 3 BHK Sky Suites',
       possession: 'Q4 2028',
       price: '₹1.35 Cr* onwards',
-      image: '/src/assets/images/featured_project_godrej_1793725857634.jpg',
+      image: 'https://chhabraproperty.com/wp-content/uploads/2026/10/godrej-dmic-greater-noida-project-view-1.webp',
       highlights: ['IGBC Gold Certified', 'Adjacent to Metro Link', '4-Tier Security']
     },
     {
@@ -30,7 +30,7 @@ export const FeaturedProjects = () => {
       configuration: '3 & 4 BHK Luxury Suites',
       possession: 'Under Construction (RERA Verified)',
       price: '₹1.82 Cr* onwards',
-      image: '/src/assets/images/featured_project_hero_homes_1793725857782.jpg',
+      image: 'https://chhabraproperty.com/wp-content/uploads/2026/10/hero-homes-leafsong-retreat-greater-noida-project-view.webp',
       highlights: ['85% Open Green Space', 'Olympic Lap Pool', 'EV Charging Bays']
     },
   ]

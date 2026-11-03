@@ -22,7 +22,7 @@ export const LayoutMapsSection = () => {
       icon: <Factory className="size-5 text-amber-400" />,
       link: '/maps/yamuna',
       stats: '70+ Blueprint Layouts',
-      image: '/src/assets/images/master_plan_yeida_airport_1793725858775.jpg'
+      image: 'https://chhabraproperty.com/wp-content/uploads/2026/10/MP-YAMUNA-2041-LATEST-WITH-ACTUAL-VILLAGE-BOUNDARIES-1024x683.jpg'
     },
     {
       title: 'Noida Master Plan',
